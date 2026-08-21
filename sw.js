@@ -12,6 +12,8 @@ const ASSETS = [
   './service-ecommerce.html',
   './service-apps.html',
   './service-marketing.html',
+  './service-seo.html',
+  './service-solutions.html',
   './styles.css',
   './script.js',
   './logo-takamul.png',
