@@ -101,3 +101,36 @@ if (contactForm) {
     }, 1500);
   });
 }
+
+/* ===== PWA Install ===== */
+let deferredPrompt = null;
+const installBtn = document.getElementById('pwaInstallBtn');
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (installBtn) installBtn.style.display = 'inline-block';
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null;
+  if (installBtn) installBtn.style.display = 'none';
+});
+
+function installPWA() {
+  if (!deferredPrompt) {
+    // Fallback: show instructions
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isIOS) {
+      alert('لإضافة تكامل إلى الشاشة الرئيسية:\n\n1. اضغط على زر المشاركة (⬆️) في Safari\n2. اختر "إضافة إلى الشاشة الرئيسية"\n3. اضغط "إضافة"');
+    } else {
+      alert('لإضافة تكامل إلى الشاشة الرئيسية:\n\n1. اضغط على النقاط الثلاث (⋮) في المتصفح\n2. اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية"');
+    }
+    return;
+  }
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(choice => {
+    deferredPrompt = null;
+    if (installBtn) installBtn.style.display = 'none';
+  });
+}

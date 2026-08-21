@@ -1,0 +1,22 @@
+{
+  "name": "تكامل للحلول التكنولوجية",
+  "short_name": "تكامل",
+  "description": "شركة تكامل للحلول التكنولوجية - تصميم وتطوير المواقع والمتاجر الإلكترونية والتطبيقات والتسويق الإلكتروني",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "logo-takamul.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-takamul.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
