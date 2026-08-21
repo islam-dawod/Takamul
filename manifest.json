@@ -18,6 +18,16 @@
       "src": "logo-takamul.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "logo-takamul.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-takamul.png",
+      "sizes": "152x152",
+      "type": "image/png"
     }
   ]
 }

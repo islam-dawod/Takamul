@@ -105,11 +105,18 @@ if (contactForm) {
 /* ===== PWA Install ===== */
 let deferredPrompt = null;
 const installBtn = document.getElementById('pwaInstallBtn');
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+// Show install button on iOS (always) or Android (when beforeinstallprompt fires)
+if (isIOS && !isStandalone && installBtn) {
+  installBtn.style.display = 'inline-block';
+}
 
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
-  if (installBtn) installBtn.style.display = 'inline-block';
+  if (installBtn && !isStandalone) installBtn.style.display = 'inline-block';
 });
 
 window.addEventListener('appinstalled', () => {
@@ -118,19 +125,45 @@ window.addEventListener('appinstalled', () => {
 });
 
 function installPWA() {
-  if (!deferredPrompt) {
-    // Fallback: show instructions
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    if (isIOS) {
-      alert('لإضافة تكامل إلى الشاشة الرئيسية:\n\n1. اضغط على زر المشاركة (⬆️) في Safari\n2. اختر "إضافة إلى الشاشة الرئيسية"\n3. اضغط "إضافة"');
-    } else {
-      alert('لإضافة تكامل إلى الشاشة الرئيسية:\n\n1. اضغط على النقاط الثلاث (⋮) في المتصفح\n2. اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية"');
-    }
-    return;
+  // If already installed, do nothing
+  if (isStandalone) return;
+
+  if (deferredPrompt) {
+    // Android: native install prompt
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(choice => {
+      deferredPrompt = null;
+      if (installBtn) installBtn.style.display = 'none';
+    });
+  } else if (isIOS) {
+    // iOS: show step-by-step instructions
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);';
+    modal.innerHTML = `
+      <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+        <div style="font-size:48px;margin-bottom:16px;">📲</div>
+        <h3 style="margin:0 0 8px;color:#1e293b;font-size:1.2rem;">إضافة تكامل للشاشة الرئيسية</h3>
+        <div style="text-align:right;direction:rtl;margin:20px 0;padding:20px;background:#f1f5f9;border-radius:12px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <span style="background:#2563eb;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;">1</span>
+            <span style="color:#475569;">اضغط على أيقونة <b>المشاركة</b> <span style="font-size:1.2rem;">⬆️</span> في شريط Safari</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <span style="background:#2563eb;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;">2</span>
+            <span style="color:#475569;">اختر <b>"إضافة إلى الشاشة الرئيسية"</b></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#2563eb;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;">3</span>
+            <span style="color:#475569;">اضغط <b>"إضافة"</b> في الأعلى</span>
+          </div>
+        </div>
+        <button onclick="this.closest('div[style]').parentElement.remove()" style="margin-top:12px;padding:12px 32px;background:#2563eb;color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:1rem;font-weight:600;">فهمت ✓</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  } else {
+    // Android (older browsers without beforeinstallprompt)
+    alert('لإضافة تكامل إلى الشاشة الرئيسية:\n\n1. اضغط على النقاط الثلاث (⋮) في المتصفح\n2. اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية"');
   }
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(choice => {
-    deferredPrompt = null;
-    if (installBtn) installBtn.style.display = 'none';
-  });
 }
