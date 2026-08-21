@@ -124,10 +124,10 @@ ul, ol { list-style: none; }
 .site-header.scrolled { box-shadow: 0 4px 20px rgba(15,23,42,.08); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 300px;
+  height: 200px;
 }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
-.logo img { height: 250px; width: auto; }
+.logo img { height: 150px; width: auto; }
 .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--text); line-height: 1.2; }
 .logo-text small { display: block; font-size: .7rem; font-weight: 500; color: var(--muted); letter-spacing: 1px; }
 .nav { display: flex; align-items: center; gap: 6px; }
