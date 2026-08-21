@@ -137,6 +137,26 @@ ul, ol { list-style: none; }
 }
 .nav a:hover { color: var(--primary); background: var(--primary-light); }
 .nav a.active { color: var(--primary); background: var(--primary-light); }
+
+/* Dropdown */
+.nav-item { position: relative; }
+.nav-item > .nav-link { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.nav-item > .nav-link::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; transition: transform .2s; }
+.nav-item:hover > .nav-link::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 260px; background: #fff; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.12); padding: 8px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all .25s ease; z-index: 200; }
+.nav-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; color: var(--text-2); font-size: .9rem; font-weight: 500; transition: all .2s; white-space: nowrap; }
+.dropdown-menu a:hover { background: var(--primary-light); color: var(--primary); }
+.dropdown-menu .dd-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+.dropdown-menu .dd-label { display: block; }
+.dropdown-menu .dd-desc { display: block; font-size: .75rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+@media (max-width: 768px) {
+  .dropdown-menu { position: static; box-shadow: none; background: transparent; padding: 0 16px; opacity: 1; visibility: visible; transform: none; max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .nav-item.open .dropdown-menu { max-height: 500px; }
+  .dropdown-menu a { padding: 10px 0; border-bottom: 1px solid var(--border); }
+}
+
 .header-actions { display: flex; align-items: center; gap: 10px; }
 .nav-cta {
   background: var(--grad) !important; color: #fff !important;

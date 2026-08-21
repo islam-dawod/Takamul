@@ -16,6 +16,15 @@ if (navToggle && nav) {
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-item > .nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        link.closest('.nav-item').classList.toggle('open');
+      }
+    });
+  });
 }
 
 // Header shadow on scroll + progress bar
@@ -100,6 +109,17 @@ if (contactForm) {
       }, 3000);
     }, 1500);
   });
+}
+
+/* ===== Active Dropdown ===== */
+const servicePages = ['service-web.html','service-ecommerce.html','service-apps.html','service-marketing.html','service-seo.html','service-solutions.html','services.html'];
+const currentPage = window.location.pathname.split('/').pop();
+if (servicePages.includes(currentPage)) {
+  const navItem = document.querySelector('.nav-item');
+  if (navItem) {
+    const link = navItem.querySelector('.nav-link');
+    link.classList.add('active');
+  }
 }
 
 /* ===== PWA Install ===== */
