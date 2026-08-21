@@ -1,20 +1,21 @@
-const CACHE_NAME = 'takamul-v1';
+const CACHE_NAME = 'takamul-v2';
+const BASE = self.registration.scope;
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/about.html',
-  '/services.html',
-  '/contact.html',
-  '/portfolio.html',
-  '/faq.html',
-  '/service-web.html',
-  '/service-ecommerce.html',
-  '/service-apps.html',
-  '/service-marketing.html',
-  '/styles.css',
-  '/script.js',
-  '/logo-takamul.png',
-  '/manifest.json'
+  './',
+  './index.html',
+  './about.html',
+  './services.html',
+  './contact.html',
+  './portfolio.html',
+  './faq.html',
+  './service-web.html',
+  './service-ecommerce.html',
+  './service-apps.html',
+  './service-marketing.html',
+  './styles.css',
+  './script.js',
+  './logo-takamul.png',
+  './manifest.json'
 ];
 
 self.addEventListener('install', e => {
