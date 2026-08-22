@@ -329,6 +329,175 @@ ul, ol { list-style: none; }
 .service-hero {
   padding: 100px 0 60px;
   background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+.service-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+.service-hero .container { position: relative; z-index: 1; }
+
+/* Breadcrumb backgrounds — unique per page */
+.bg-about {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #7c3aed 100%);
+  color: #fff;
+}
+.bg-about .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-about h1, .bg-about h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-about p, .bg-about .lead { color: rgba(255,255,255,.85); }
+.bg-about::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 90% 10%, rgba(124,58,237,.3) 0%, transparent 40%);
+}
+
+.bg-services {
+  background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #2563eb 100%);
+  color: #fff;
+}
+.bg-services .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-services h1, .bg-services h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-services p, .bg-services .lead { color: rgba(255,255,255,.85); }
+.bg-services::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 10% 90%, rgba(37,99,235,.4) 0%, transparent 50%);
+}
+
+.bg-web {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 50%, #06b6d4 100%);
+  color: #fff;
+}
+.bg-web .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-web h1, .bg-web h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-web p, .bg-web .lead { color: rgba(255,255,255,.85); }
+.bg-web .btn-primary { background: #fff; color: #0c4a6e; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-web .btn-primary:hover { background: #f0f9ff; color: #0c4a6e; }
+.bg-web::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1'%3E%3Crect x='10' y='10' width='60' height='40' rx='4'/%3E%3Cline x1='10' y1='20' x2='70' y2='20'/%3E%3Ccircle cx='18' cy='15' r='2'/%3E%3Ccircle cx='26' cy='15' r='2'/%3E%3Ccircle cx='34' cy='15' r='2'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 80% 80%, rgba(6,182,212,.3) 0%, transparent 50%);
+}
+
+.bg-ecommerce {
+  background: linear-gradient(135deg, #14532d 0%, #16a34a 50%, #10b981 100%);
+  color: #fff;
+}
+.bg-ecommerce .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-ecommerce h1, .bg-ecommerce h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-ecommerce p, .bg-ecommerce .lead { color: rgba(255,255,255,.85); }
+.bg-ecommerce .btn-primary { background: #fff; color: #14532d; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-ecommerce .btn-primary:hover { background: #f0fdf4; color: #14532d; }
+.bg-ecommerce::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 70% 20%, rgba(16,185,129,.3) 0%, transparent 50%);
+}
+
+.bg-apps {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+  color: #fff;
+}
+.bg-apps .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-apps h1, .bg-apps h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-apps p, .bg-apps .lead { color: rgba(255,255,255,.85); }
+.bg-apps .btn-primary { background: #fff; color: #4c1d95; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-apps .btn-primary:hover { background: #f5f3ff; color: #4c1d95; }
+.bg-apps::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='50' height='80' viewBox='0 0 50 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1.5'%3E%3Crect x='10' y='5' width='30' height='55' rx='6'/%3E%3Cline x1='22' y1='52' x2='28' y2='52'/%3E%3Ccircle cx='25' cy='12' r='1'/%3E%3Crect x='14' y='18' width='22' height='30' rx='1'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 20% 80%, rgba(124,58,237,.4) 0%, transparent 50%);
+}
+
+.bg-marketing {
+  background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #f59e0b 100%);
+  color: #fff;
+}
+.bg-marketing .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-marketing h1, .bg-marketing h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-marketing p, .bg-marketing .lead { color: rgba(255,255,255,.85); }
+.bg-marketing .btn-primary { background: #fff; color: #7c2d12; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-marketing .btn-primary:hover { background: #fff7ed; color: #7c2d12; }
+.bg-marketing::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 30h60M30 0v60M15 0v60M45 0v60M0 15h60M0 45h60'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 80% 70%, rgba(245,158,11,.3) 0%, transparent 50%);
+}
+
+.bg-seo {
+  background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%);
+  color: #fff;
+}
+.bg-seo .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-seo h1, .bg-seo h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-seo p, .bg-seo .lead { color: rgba(255,255,255,.85); }
+.bg-seo .btn-primary { background: #fff; color: #064e3b; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-seo .btn-primary:hover { background: #ecfdf5; color: #064e3b; }
+.bg-seo::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='15' fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'/%3E%3Ccircle cx='20' cy='20' r='8' fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'/%3E%3Cline x1='30' y1='30' x2='38' y2='38' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='2'/%3E%3C/svg%3E")
+    ,radial-gradient(circle at 30% 30%, rgba(52,211,153,.3) 0%, transparent 50%);
+}
+
+.bg-solutions {
+  background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 50%, #6366f1 100%);
+  color: #fff;
+}
+.bg-solutions .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-solutions h1, .bg-solutions h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-solutions p, .bg-solutions .lead { color: rgba(255,255,255,.85); }
+.bg-solutions .btn-primary { background: #fff; color: #1e1b4b; box-shadow: 0 8px 24px -6px rgba(0,0,0,.3); }
+.bg-solutions .btn-primary:hover { background: #eef2ff; color: #1e1b4b; }
+.bg-solutions::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Crect x='5' y='5' width='20' height='20' rx='3'/%3E%3Crect x='35' y='5' width='20' height='20' rx='3'/%3E%3Crect x='5' y='35' width='20' height='20' rx='3'/%3E%3Crect x='35' y='35' width='20' height='20' rx='3'/%3E%3Cline x1='25' y1='15' x2='35' y2='15'/%3E%3Cline x1='25' y1='45' x2='35' y2='45'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 60% 40%, rgba(99,102,241,.3) 0%, transparent 50%);
+}
+
+.bg-portfolio {
+  background: linear-gradient(135deg, #78350f 0%, #d97706 50%, #fbbf24 100%);
+  color: #fff;
+}
+.bg-portfolio .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-portfolio h1, .bg-portfolio h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-portfolio p, .bg-portfolio .lead { color: rgba(255,255,255,.85); }
+.bg-portfolio::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='5' y='5' width='50' height='50' rx='8' fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'/%3E%3Crect x='15' y='15' width='30' height='30' rx='4' fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E")
+    ,radial-gradient(circle at 80% 20%, rgba(251,191,36,.3) 0%, transparent 50%);
+}
+
+.bg-faq {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 60%, #3b82f6 100%);
+  color: #fff;
+}
+.bg-faq .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-faq h1, .bg-faq h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-faq p, .bg-faq .lead { color: rgba(255,255,255,.85); }
+.bg-faq::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20c0-5.523 4.477-10 10-10v20c-5.523 0-10-4.477-10-10z'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 50% 50%, rgba(59,130,246,.25) 0%, transparent 60%);
+}
+
+.bg-contact {
+  background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 50%, #7c3aed 100%);
+  color: #fff;
+}
+.bg-contact .kicker { background: rgba(255,255,255,.15); color: #fff; }
+.bg-contact h1, .bg-contact h1 .text-gradient { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.bg-contact p, .bg-contact .lead { color: rgba(255,255,255,.85); }
+.bg-contact::before {
+  background:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3Cpath d='M20 5v10M20 25v10M5 20h10M25 20h10'/%3E%3C/g%3E%3C/svg%3E")
+    ,radial-gradient(circle at 30% 70%, rgba(124,58,237,.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(29,78,216,.3) 0%, transparent 40%);
 }
 .service-hero-inner {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
