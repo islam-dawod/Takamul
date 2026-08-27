@@ -604,51 +604,80 @@ ul, ol { list-style: none; }
   padding: 0 24px 20px; color: var(--muted); font-size: 1rem; line-height: 1.9;
 }
 
-/* ===== Contact ===== */
-.contact-section { background: var(--bg-alt); }
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+/* ===== Contact Form Section ===== */
+#contact.section {
+  background: var(--bg-alt);
+  padding: 80px 0;
 }
-.contact-info { }
-.contact-info h3 { font-size: 1.3rem; margin-bottom: 8px; }
-.contact-info > p { color: var(--muted); margin-bottom: 32px; }
-.contact-items { display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px; }
-.contact-item {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 16px 20px; background: var(--surface);
-  border: 1px solid var(--border); border-radius: var(--radius);
-  transition: border-color .2s;
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  max-width: 700px;
+  margin: 0 auto;
 }
-.contact-item:hover { border-color: var(--primary); }
-.contact-item-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--primary-light);
-  display: grid; place-items: center; flex-shrink: 0;
-  font-size: 1.2rem;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-.contact-item-text strong { display: block; font-size: .95rem; margin-bottom: 2px; }
-.contact-item-text span { color: var(--muted); font-size: .92rem; }
-.contact-form-wrap {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 36px;
-  box-shadow: var(--shadow);
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.contact-form-wrap h3 { font-size: 1.3rem; margin-bottom: 24px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-group.full { grid-column: 1 / -1; }
-.form-group label { font-size: .88rem; font-weight: 600; color: var(--text-2); }
-.form-group input, .form-group select, .form-group textarea {
-  font-family: inherit; font-size: 1rem; color: var(--text);
-  background: var(--bg-alt); border: 1px solid var(--border);
-  border-radius: 10px; padding: 12px 16px; outline: none;
-  transition: border-color .2s, box-shadow .2s;
+.form-group.full {
+  grid-column: 1 / -1;
 }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+.form-group label {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
 }
-.form-group textarea { resize: vertical; min-height: 120px; }
-.form-group select { appearance: auto; cursor: pointer; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: inherit;
+  font-size: .95rem;
+  color: var(--text);
+  background: var(--bg-alt);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  outline: none;
+  transition: all .3s ease;
+  width: 100%;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+  opacity: .7;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(26,115,232,.1);
+  background: #fff;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-group select {
+  appearance: auto;
+  cursor: pointer;
+}
+.form-submit {
+  margin-top: 8px;
+}
+.form-submit .btn {
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+}
 
 /* ===== Footer ===== */
 .site-footer {
@@ -1471,12 +1500,12 @@ ul, ol { list-style: none; }
   object-fit: cover;
 }
 .footer-cta-logo {
-  height: 40px;
-  margin: 0 auto 16px;
+  height: 60px;
+  margin: 0 auto 20px;
   filter: brightness(0) invert(1);
-  opacity: .9;
+  opacity: .95;
   animation: fadeIn .8s ease both;
-  animation-delay: .4s;
+  animation-delay: .3s;
 }
 .footer-cta-badge {
   display: inline-block;
