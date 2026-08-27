@@ -44,13 +44,14 @@ window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 // Reveal on scroll
-const revealEls = document.querySelectorAll('.reveal, .feature-card, .why-card, .step, .work-card, .section-head, .faq-item, .contact-item');
+const revealEls = document.querySelectorAll('.feature-card, .why-item, .step, .work-card, .section-head, .faq-item, .contact-item, .split-col');
 revealEls.forEach(el => el.classList.add('reveal'));
 
 // Stagger grid children
-document.querySelectorAll('.feature-cards, .why-grid, .steps-grid, .portfolio-grid').forEach(grid => {
+document.querySelectorAll('.feature-cards, .why-list, .steps-grid, .portfolio-grid, .faq-list').forEach(grid => {
   Array.from(grid.children).forEach((child, i) => {
-    child.style.transitionDelay = (i * 0.08) + 's';
+    child.classList.add('reveal');
+    child.style.transitionDelay = (i * 0.1) + 's';
   });
 });
 
