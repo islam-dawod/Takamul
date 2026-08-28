@@ -1363,16 +1363,16 @@ ul, ol { list-style: none; }
 
 /* Hero Button Enhanced */
 .hero .btn-primary {
-  background: #fff;
-  color: var(--primary) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+  background: var(--grad);
+  color: #fff !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.3);
   animation: pulse-glow 2s ease infinite;
 }
 .hero .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0,0,0,.3);
-  background: #fff;
-  color: var(--primary) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 40px rgba(0,102,204,.3);
+  background: var(--grad);
+  color: #fff !important;
 }
 .hero .btn-secondary {
   background: rgba(255,255,255,.15);
@@ -2070,12 +2070,8 @@ ul, ol { list-style: none; }
 }
 
 /* Contact form entrance */
-.form-card {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.form-card.visible {
-  animation: slideUpFade .7s ease-out forwards;
+.site-contact .form-card.reveal.visible {
+  animation: slideUpFade .5s ease-out forwards;
 }
 
 /* Split column entrance */
@@ -2162,3 +2158,12 @@ ul, ol { list-style: none; }
   50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
 }
 
+
+/* Lang switch icon alignment */
+.lang-switch svg {
+  flex-shrink: 0;
+  margin-inline-end: 4px;
+}
+.hero .btn svg {
+  flex-shrink: 0;
+}
