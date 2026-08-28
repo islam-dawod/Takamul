@@ -89,10 +89,40 @@ document.querySelectorAll('.back-top').forEach(el => {
 // Contact form → WhatsApp
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+  // Arabic validation messages
+  const validationRules = [
+    { id: 'name', msg: 'الرجاء إدخال الاسم الكامل' },
+    { id: 'phone', msg: 'الرجاء إدخال رقم الهاتف' },
+    { id: 'email', msg: 'الرجاء إدخال البريد الإلكتروني' },
+    { id: 'service', msg: 'الرجاء اختيار نوع الخدمة' },
+    { id: 'message', msg: 'الرجاء إدخال تفاصيل المشروع' },
+  ];
+
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
-    if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-    
+
+    // Custom Arabic validation
+    for (const rule of validationRules) {
+      const el = document.getElementById(rule.id);
+      if (!el.value.trim()) {
+        el.focus();
+        el.style.borderColor = '#ef4444';
+        setTimeout(() => { el.style.borderColor = ''; }, 3000);
+        alert(rule.msg);
+        return;
+      }
+    }
+    // Email format check
+    const emailEl = document.getElementById('email');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(emailEl.value.trim())) {
+      emailEl.focus();
+      emailEl.style.borderColor = '#ef4444';
+      setTimeout(() => { emailEl.style.borderColor = ''; }, 3000);
+      alert('الرجاء إدخال بريد إلكتروني صحيح');
+      return;
+    }
+
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
