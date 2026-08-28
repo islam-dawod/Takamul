@@ -92,12 +92,13 @@ ul, ol { list-style: none; }
 .btn:hover { transform: translateY(-2px); }
 .btn svg { width: 20px; height: 20px; flex: none; }
 .btn-primary {
-  background: var(--grad); color: #fff;
+  background: var(--grad); color: #fff !important;
   box-shadow: 0 12px 26px -8px rgba(0, 102, 204, .6);
 }
 .btn-primary:hover {
   box-shadow: 0 18px 34px -10px rgba(122, 63, 209, .6);
-  color: #fff;
+  color: #fff !important;
+  background: var(--grad);
 }
 .btn-secondary {
   background: var(--bg); color: var(--primary);
@@ -113,7 +114,7 @@ ul, ol { list-style: none; }
   background: transparent; color: #fff;
   border-color: rgba(255,255,255,.4);
 }
-.btn-outline-white:hover { background: #fff; color: var(--primary); border-color: #fff; }
+.btn-outline-white:hover { background: rgba(255,255,255,.2); color: #fff; border-color: #fff; }
 .btn-lg { padding: 16px 40px; font-size: 1.05rem; }
 .btn-sm { padding: 10px 24px; font-size: .92rem; }
 .btn-block { width: 100%; }
@@ -1349,6 +1350,7 @@ ul, ol { list-style: none; }
 .hero .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 12px 40px rgba(0,0,0,.3);
+  color: #fff !important;
 }
 .hero .btn-secondary {
   background: rgba(255,255,255,.1);
@@ -1359,6 +1361,7 @@ ul, ol { list-style: none; }
 .hero .btn-secondary:hover {
   background: rgba(255,255,255,.2);
   border-color: rgba(255,255,255,.5);
+  color: #fff;
 }
 
 /* Scroll Reveal Animation */
@@ -1805,9 +1808,9 @@ ul, ol { list-style: none; }
   border-color: rgba(255,255,255,.35);
 }
 .site-contact .btn-outline-white:hover {
-  background: #fff;
-  color: var(--text);
-  border-color: #fff;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border-color: rgba(255,255,255,.6);
 }
 
 /* Form Card in Dark Section */
