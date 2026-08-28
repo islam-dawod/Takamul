@@ -184,14 +184,11 @@ ul, ol { list-style: none; }
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-  background:
-    radial-gradient(50% 50% at 90% 10%, rgba(124,58,237,.1), transparent 65%),
-    radial-gradient(45% 45% at 10% 30%, rgba(37,99,235,.08), transparent 65%);
+  background: url('hero-img.jpg') center/cover no-repeat;
 }
 .hero-bg::before {
   content: ""; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(15,23,42,.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background: linear-gradient(135deg, rgba(10,30,60,.85) 0%, rgba(10,30,60,.7) 50%, rgba(26,115,232,.6) 100%);
 }
 .hero-inner {
   position: relative; z-index: 1;
@@ -199,8 +196,8 @@ ul, ol { list-style: none; }
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.25);
-  color: #059669; font-weight: 700; font-size: .85rem;
+  background: rgba(16,185,129,.2); border: 1px solid rgba(16,185,129,.4);
+  color: #34d399; font-weight: 700; font-size: .85rem;
   padding: 6px 16px; border-radius: 999px; margin-bottom: 20px;
 }
 .hero-badge .dot {
@@ -215,18 +212,19 @@ ul, ol { list-style: none; }
 .hero h1 {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   margin-bottom: 24px; letter-spacing: -.02em;
+  color: #fff;
 }
 .hero-lead {
-  font-size: 1.15rem; color: var(--text-2);
+  font-size: 1.15rem; color: rgba(255,255,255,.9);
   margin-bottom: 32px; max-width: 560px;
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-stats {
   display: flex; gap: 40px; margin-top: 48px;
-  padding-top: 32px; border-top: 1px solid var(--border);
+  padding-top: 32px; border-top: 1px solid rgba(255,255,255,.2);
 }
-.hero-stat-num { font-size: 1.8rem; font-weight: 800; }
-.hero-stat-label { font-size: .85rem; color: var(--muted); margin-top: 2px; }
+.hero-stat-num { font-size: 1.8rem; font-weight: 800; color: #fff; }
+.hero-stat-label { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: 2px; }
 .hero-visual { position: relative; }
 .hero-visual img {
   width: 100%; border-radius: var(--radius-lg);
