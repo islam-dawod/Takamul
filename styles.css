@@ -190,8 +190,7 @@ ul, ol { list-style: none; }
 }
 .hero-bg::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(45% 45% at 85% 12%, rgba(122, 63, 209, .08), transparent 70%),
-              radial-gradient(40% 40% at 10% 20%, rgba(0, 102, 204, .06), transparent 70%);
+  background: linear-gradient(135deg, rgba(10, 30, 60, .82), rgba(0, 102, 204, .65));
 }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
@@ -208,8 +207,8 @@ ul, ol { list-style: none; }
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0, 102, 204, .1); border: 1px solid rgba(0, 102, 204, .25);
-  color: #0066cc; font-weight: 700; font-size: .9rem;
+  background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .25);
+  color: #fff; font-weight: 700; font-size: .9rem;
   padding: 10px 20px; border-radius: 999px; margin-bottom: 24px;
   animation: fadeInDown .8s ease-out;
 }
@@ -229,13 +228,13 @@ ul, ol { list-style: none; }
 .hero h1 {
   font-size: clamp(2.4rem, 6vw, 4rem);
   margin-bottom: 24px; letter-spacing: -.02em;
-  color: var(--text);
-  text-shadow: none;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
   line-height: 1.2;
   font-weight: 900;
 }
 .hero-lead {
-  font-size: 1.2rem; color: var(--muted);
+  font-size: 1.2rem; color: rgba(255,255,255,.85);
   margin-bottom: 36px; max-width: 580px;
   line-height: 1.9;
   animation: fadeInUp .8s ease-out .2s both;
@@ -296,7 +295,7 @@ ul, ol { list-style: none; }
 .particle {
   position: absolute;
   width: 6px; height: 6px;
-  background: rgba(0, 102, 204, .3);
+  background: rgba(255, 255, 255, .4);
   border-radius: 50%;
   animation: float-particle 15s infinite linear;
 }
